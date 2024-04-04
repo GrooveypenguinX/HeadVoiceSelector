@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "Q:\\SPT_380\\SPT_Client_Mods\\HeadVoiceSelector\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3179E060-E4B0-475A-B8BF-C3859995149D}|HeadVoiceSelector.csproj|q:\\spt_380\\spt_client_mods\\headvoiceselector\\core\\ui\\newheadvoicedrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3179E060-E4B0-475A-B8BF-C3859995149D}|HeadVoiceSelector.csproj|solutionrelative:core\\ui\\newheadvoicedrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3179E060-E4B0-475A-B8BF-C3859995149D}|HeadVoiceSelector.csproj|q:\\spt_380\\spt_client_mods\\headvoiceselector\\patches\\overallscreenpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3179E060-E4B0-475A-B8BF-C3859995149D}|HeadVoiceSelector.csproj|solutionrelative:patches\\overallscreenpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3179E060-E4B0-475A-B8BF-C3859995149D}|HeadVoiceSelector.csproj|q:\\spt_380\\spt_client_mods\\headvoiceselector\\headvoiceselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3179E060-E4B0-475A-B8BF-C3859995149D}|HeadVoiceSelector.csproj|solutionrelative:headvoiceselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3179E060-E4B0-475A-B8BF-C3859995149D}|HeadVoiceSelector.csproj|q:\\spt_380\\spt_client_mods\\headvoiceselector\\headvoiceselector.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3179E060-E4B0-475A-B8BF-C3859995149D}|HeadVoiceSelector.csproj|solutionrelative:headvoiceselector.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3179E060-E4B0-475A-B8BF-C3859995149D}|HeadVoiceSelector.csproj|q:\\spt_380\\spt_client_mods\\headvoiceselector\\utils\\webrequestutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3179E060-E4B0-475A-B8BF-C3859995149D}|HeadVoiceSelector.csproj|solutionrelative:utils\\webrequestutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HeadVoiceSelector.csproj",
+              "DocumentMoniker": "Q:\\SPT_380\\SPT_Client_Mods\\HeadVoiceSelector\\HeadVoiceSelector.csproj",
+              "RelativeDocumentMoniker": "HeadVoiceSelector.csproj",
+              "ToolTip": "Q:\\SPT_380\\SPT_Client_Mods\\HeadVoiceSelector\\HeadVoiceSelector.csproj",
+              "RelativeToolTip": "HeadVoiceSelector.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-03T00:12:25.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WebRequestUtils.cs",
+              "DocumentMoniker": "Q:\\SPT_380\\SPT_Client_Mods\\HeadVoiceSelector\\Utils\\WebRequestUtils.cs",
+              "RelativeDocumentMoniker": "Utils\\WebRequestUtils.cs",
+              "ToolTip": "Q:\\SPT_380\\SPT_Client_Mods\\HeadVoiceSelector\\Utils\\WebRequestUtils.cs",
+              "RelativeToolTip": "Utils\\WebRequestUtils.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T23:55:53.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OverallScreenPatch.cs",
+              "DocumentMoniker": "Q:\\SPT_380\\SPT_Client_Mods\\HeadVoiceSelector\\Patches\\OverallScreenPatch.cs",
+              "RelativeDocumentMoniker": "Patches\\OverallScreenPatch.cs",
+              "ToolTip": "Q:\\SPT_380\\SPT_Client_Mods\\HeadVoiceSelector\\Patches\\OverallScreenPatch.cs",
+              "RelativeToolTip": "Patches\\OverallScreenPatch.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T23:52:30.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NewHeadVoiceDrawer.cs",
+              "DocumentMoniker": "Q:\\SPT_380\\SPT_Client_Mods\\HeadVoiceSelector\\Core\\UI\\NewHeadVoiceDrawer.cs",
+              "RelativeDocumentMoniker": "Core\\UI\\NewHeadVoiceDrawer.cs",
+              "ToolTip": "Q:\\SPT_380\\SPT_Client_Mods\\HeadVoiceSelector\\Core\\UI\\NewHeadVoiceDrawer.cs",
+              "RelativeToolTip": "Core\\UI\\NewHeadVoiceDrawer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T23:51:25.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HeadVoiceSelector.cs",
+              "DocumentMoniker": "Q:\\SPT_380\\SPT_Client_Mods\\HeadVoiceSelector\\HeadVoiceSelector.cs",
+              "RelativeDocumentMoniker": "HeadVoiceSelector.cs",
+              "ToolTip": "Q:\\SPT_380\\SPT_Client_Mods\\HeadVoiceSelector\\HeadVoiceSelector.cs",
+              "RelativeToolTip": "HeadVoiceSelector.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAIAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T23:50:47.956Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
