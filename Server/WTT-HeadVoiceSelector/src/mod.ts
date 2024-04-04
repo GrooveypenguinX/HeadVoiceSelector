@@ -4,15 +4,14 @@ import { DependencyContainer } from "tsyringe";
 import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod";
 import { LogTextColor } from "@spt-aki/models/spt/logging/LogTextColor";
 import { WTTInstanceManager } from "./WTTInstanceManager";
-
+import { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod";
 
 class HeadVoiceSelector
-implements IPreAkiLoadMod
+implements IPreAkiLoadMod, IPostDBLoadMod
 {
     private Instance: WTTInstanceManager = new WTTInstanceManager();
     private version: string;
     private modName = "WTT-HeadVoiceSelector";
-
     debug = false;
 
     public preAkiLoad(container: DependencyContainer): void 
@@ -24,6 +23,11 @@ implements IPreAkiLoadMod
         this.registerWTTChangeVoiceRoute();
 
         this.Instance.logger.log(`[${this.Instance.modName}] Routes successfully loaded!`, LogTextColor.GREEN);
+    }
+
+    public postDBLoad(container: DependencyContainer): void 
+    {
+        this.Instance.postDBLoad(container);
     }
 
     private registerWTTChangeHeadRoute(): void 
@@ -75,7 +79,8 @@ implements IPreAkiLoadMod
                         try 
                         {
                             const pmcSaveProfile = this.Instance.saveServer.getProfile(sessionId).characters.pmc;
-                            pmcSaveProfile.Info.Voice = info.Data; // Access data field from JSON
+                            const newVoiceID = this.Instance.database.templates.customization[info.Data]._name;
+                            pmcSaveProfile.Info.Voice = newVoiceID;
                             this.Instance.saveServer.saveProfile(sessionId);
                             this.Instance.logger.log(`[${this.Instance.modName}] Profile changes saved successfully.`, LogTextColor.GREEN);
                             return JSON.stringify({ success: true });
