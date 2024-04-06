@@ -49,6 +49,7 @@ namespace HeadVoiceSelector.Core.UI
             {
                 Console.WriteLine("HeadVoiceSelector: Change Head Route has been requested");
             }
+
         }
 
         public static void WTTChangeVoice(string id)
@@ -69,7 +70,7 @@ namespace HeadVoiceSelector.Core.UI
         }
 
 
-        // Custom head and voice drawers logic
+
         public static async Task AddCustomizationDrawers()
         {
             try
@@ -164,6 +165,7 @@ namespace HeadVoiceSelector.Core.UI
 
 
                                         clonedCustomizationDrawers.gameObject.SetActive(true);
+
 #if DEBUG
                                         Console.WriteLine("Successfully cloned and setup new customization dropdowns!");
 #endif
@@ -444,6 +446,9 @@ namespace HeadVoiceSelector.Core.UI
 #endif
                 showPlayerPreview().HandleExceptions();
 
+
+
+
                 WTTChangeHead(key);
 
 
@@ -460,9 +465,30 @@ namespace HeadVoiceSelector.Core.UI
 
                 GameObject overallPlayerModelView = GameObject.Find("Common UI/Common UI/InventoryScreen/Overall Panel/LeftSide/CharacterPanel");
                 PlayerModelView playerModelViewScript = overallPlayerModelView.GetComponentInChildren<PlayerModelView>();
-                await playerModelViewScript.Show(PatchConstants.BackEndSession.Profile, null, null, 0, null, true);
+                GameObject overallScreenParent = GameObject.Find("Common UI/Common UI/InventoryScreen/Overall Panel/LeftSide");
 
-                changeSelectedHead(false, playerModelViewScript);
+                // Check if overallScreenParent is not null before accessing its component
+                if (overallScreenParent != null)
+                {
+                    InventoryPlayerModelWithStatsWindow inventoryPlayerModelWithStatsWindow = overallScreenParent.GetComponent<InventoryPlayerModelWithStatsWindow>();
+
+                    // Check if inventoryPlayerModelWithStatsWindow is not null before accessing its method
+                    if (inventoryPlayerModelWithStatsWindow != null)
+                    {
+                        await playerModelViewScript.Show(PatchConstants.BackEndSession.Profile, null, new Action(inventoryPlayerModelWithStatsWindow.method_5), 0f, null, true);
+
+                        changeSelectedHead(false, playerModelViewScript);
+                    }
+                    else
+                    {
+                        Console.WriteLine("InventoryPlayerModelWithStatsWindow component not found.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Overall screen parent not found.");
+                }
+
             }
             catch (Exception ex)
             {
