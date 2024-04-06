@@ -1,7 +1,7 @@
 {
     "name": "WTT-HeadVoiceSelector",
     "author": "GrooveypenguinX",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "license": "NCSA",
     "main": "src/mod.js",
     "akiVersion": "~3.8",

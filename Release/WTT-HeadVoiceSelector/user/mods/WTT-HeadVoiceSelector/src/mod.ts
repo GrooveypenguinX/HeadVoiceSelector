@@ -79,8 +79,16 @@ implements IPreAkiLoadMod, IPostDBLoadMod
                         try 
                         {
                             const pmcSaveProfile = this.Instance.saveServer.getProfile(sessionId).characters.pmc;
-                            const newVoiceID = this.Instance.database.templates.customization[info.Data]._name;
-                            pmcSaveProfile.Info.Voice = newVoiceID;
+                            if (this.debug)
+                            {
+                                this.Instance.logger.log(`[${this.Instance.modName}] Voice Name: ${info.Data}`, LogTextColor.GREEN);
+                                this.Instance.logger.log(`[${this.Instance.modName}] PMC Voice before profile changes: ${pmcSaveProfile.Info.Voice}`, LogTextColor.GREEN);
+                            } 
+                            pmcSaveProfile.Info.Voice = info.Data;
+                            if (this.debug)
+                            {
+                                this.Instance.logger.log(`[${this.Instance.modName}] PMC Voice after profile changes: ${pmcSaveProfile.Info.Voice}`, LogTextColor.GREEN);
+                            } 
                             this.Instance.saveServer.saveProfile(sessionId);
                             this.Instance.logger.log(`[${this.Instance.modName}] Profile changes saved successfully.`, LogTextColor.GREEN);
                             return JSON.stringify({ success: true });

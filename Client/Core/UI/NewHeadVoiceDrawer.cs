@@ -58,9 +58,9 @@ namespace HeadVoiceSelector.Core.UI
                 Console.WriteLine("Error: id is null.");
                 return;
             }
-
+#if DEBUG
             Console.WriteLine($"WTTChangeVoice: id = {id}");
-
+#endif
             var response = WebRequestUtils.Post<string>("/WTT/WTTChangeVoice", id);
             if (response != null)
             {
@@ -263,41 +263,36 @@ namespace HeadVoiceSelector.Core.UI
                         {
                             if (PatchConstants.BackEndSession.Profile != null)
                             {
-                                if (PatchConstants.BackEndSession.Profile.Side != null)
+
+                                if (anyCustomizationItem.Side.Contains(PatchConstants.BackEndSession.Profile.Side))
                                 {
-                                    if (anyCustomizationItem.Side.Contains(PatchConstants.BackEndSession.Profile.Side))
+                                    GClass2937 gclass = anyCustomizationItem as GClass2937;
+                                    GClass2941 gclass2 = anyCustomizationItem as GClass2941;
+                                    if (gclass != null)
                                     {
-                                        GClass2937 gclass = anyCustomizationItem as GClass2937;
-                                        GClass2941 gclass2 = anyCustomizationItem as GClass2941;
-                                        if (gclass != null)
+                                        if (gclass.BodyPart == EBodyModelPart.Head)
                                         {
-                                            if (gclass.BodyPart == EBodyModelPart.Head)
-                                            {
-                                                _headTemplates.Add(new KeyValuePair<string, GClass2937>(text, gclass));
+                                            _headTemplates.Add(new KeyValuePair<string, GClass2937>(text, gclass));
 #if DEBUG
-                                                Console.WriteLine($"Added head customization template: {text}");
-#endif
-                                            }
-                                        }
-                                        else if (gclass2 != null)
-                                        {
-                                            _voiceTemplates.Add(new KeyValuePair<string, GClass2941>(text, gclass2));
-#if DEBUG
-                                            Console.WriteLine($"Added voice customization template: {text}");
+                                            Console.WriteLine($"Added head customization template: {text}");
 #endif
                                         }
                                     }
-                                    else
+                                    else if (gclass2 != null)
                                     {
+                                        _voiceTemplates.Add(new KeyValuePair<string, GClass2941>(text, gclass2));
 #if DEBUG
-                                        Console.WriteLine($"Player side {PatchConstants.BackEndSession.Profile.Side} is not contained in anyCustomizationItem.Side.");
+                                        Console.WriteLine($"Added voice customization template: {text}");
 #endif
                                     }
                                 }
                                 else
                                 {
-                                    Console.WriteLine("profile.Side is null.");
+#if DEBUG
+                                    Console.WriteLine($"Player side {PatchConstants.BackEndSession.Profile.Side} is not contained in anyCustomizationItem.Side.");
+#endif
                                 }
+
                             }
                             else
                             {
@@ -379,25 +374,31 @@ namespace HeadVoiceSelector.Core.UI
             {
                 string currentVoice = PatchConstants.BackEndSession.Profile.Info.Voice;
 
-                int num2 = 0;
-                while (num2 < _voiceTemplates.Count && !(_voiceTemplates[num2].Key == currentVoice))
-                {
-                    num2++;
-                }
-                _selectedVoiceIndex = num2;
+                // Find the index of the current voice in the _voiceTemplates collection
+                int selectedIndex = _voiceTemplates.FindIndex(v => v.Value.Name == currentVoice);
 
+                // If the current voice is not found, log an error and return
+                if (selectedIndex == -1)
+                {
+                    Console.WriteLine($"Current voice '{currentVoice}' not found in the voice templates.");
+                    return;
+                }
+
+                // Show the dropdown with the list of voices
                 _voiceSelector.Show(new Func<IEnumerable<string>>(initializeVoiceDropdown), null);
 
-                _voiceSelector.UpdateValue(_selectedVoiceIndex, false, null, null);
+                // Update the dropdown value with the index of the current voice
+                _voiceSelector.UpdateValue(selectedIndex, false, null, null);
 
-                PatchConstants.BackEndSession.Profile.Info.Voice = _voiceTemplates[_selectedVoiceIndex].Key;
-
+                // Update the profile's voice with the selected voice
+                PatchConstants.BackEndSession.Profile.Info.Voice = _voiceTemplates[selectedIndex].Value.Name;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred during voice dropdown info setup: {ex.Message}");
             }
         }
+
         public static IEnumerable<string> initializeHeadDropdown()
         {
             return _headTemplates.Select(new Func<KeyValuePair<string, GClass2937>, string>(getLocalizedHead)).ToArray<string>();
@@ -524,7 +525,8 @@ namespace HeadVoiceSelector.Core.UI
                         return;
                     }
                 }
-                string key = _voiceTemplates[_selectedVoiceIndex].Key;
+                string key = _voiceTemplates[_selectedVoiceIndex].Value.Name;
+
                 PatchConstants.BackEndSession.Profile.Info.Voice = key;
 
 
